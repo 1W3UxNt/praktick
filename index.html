@@ -4,34 +4,14 @@
   <meta charset="UTF-8">
   <title>Гэньг</title>
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"><link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="input.css">
-
- <!-- jQuery -->
- <script src="jquery-3.1.1.min.js" type='text/javascript'></script>
-
- <!-- Bootstrap -->
- <link href='bootstrap/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
- <script src='bootstrap/js/bootstrap.min.js' type='text/javascript'></script>
-
- <!-- Datepicker -->
- <link href='bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css' rel='stylesheet' type='text/css'>
- <script src='bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js' type='text/javascript'></script>
-
+  
 </head>
 <body>
-	<form action="signup.php" method="post">
-<!-- partial:index.partial.html -->
-<div cla
-		
-</div>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script><script  src="./script.js"></script>
+	<form action="index.php" method="post">
  <div class="wrapper">
-  
-  <!--4-->
-	  <!--5--> 
+   
 	  <input type="email" id="mail" name="mail" placeholder="Введите почту">
-	  <!--6-->
+	  
 	  <input type="password" id="psw" name="psw" placeholder="Введите пароль" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Должно содержать по крайней мере одну цифру и по одной заглавной и строчной букве, а также не менее 8 или более символов" required>
 		
 	  <div class='container' style='margin-top: 0px;'>
@@ -39,13 +19,8 @@
 		
 	</div>
 
-	<!-- Script -->
-	<script type="text/javascript">
-	$(document).ready(function(){
-		 $('#datepicker').datepicker();   
-	});
 	</script>
-	<button>Submit</button>
+	<button>Отправить</button>
  </div> 
 </form>
 </body>
