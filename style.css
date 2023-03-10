@@ -1,11 +1,11 @@
 body {
-  background-color:#1a1f25;
+  background-color:#2d3238;
   font-family: 'Roboto', sans-serif;
  }
  .wrapper {
   width: 300px;
 margin-left: 38%;
-margin-top: 20%;
+margin-top: 2%;
 }
 
 
@@ -13,21 +13,19 @@ input {
   background: transparent;
   background-color: #e6cb3300;
   border: 2px solid #22272d;
-  color: #ff0000;
+  color: #bce01b;
   width: 100%;
   padding: 5px;
   height: 40px;
-  margin-top: 2%;
+  margin-top: 25%;
 }
 button{
   background: transparent;
-  background-color: #e6cb3300;
-  border: 2px solid #22272d;
-  color: #00ff0d;
+  background-color: #1f8dcc00;
+  border: 2px solid #f2f6fc;
+  color: #ce631c;
   width: 100%;
   padding: 5px;
   height: 40px;
-  margin-top: 2%; 
+  margin-top: 15%; 
 }
-
-
