@@ -10,11 +10,10 @@ if($conn === false){
       . mysqli_connect_error());
 }
 
-$mail = mysqli_real_escape_string($conn,$_POST['email']);
-$password = mysqli_real_escape_string($conn,$_POST['password']);
-
+$mail = mysqli_real_escape_string($conn,$_POST['mail']);
+$password = mysqli_real_escape_string($conn,$_POST['psw']);
 $sql = "INSERT INTO form (email, password)
-VALUES ('$email', '$password' )";
+VALUES ('$mail', '$password' )";
 
 if(mysqli_query($conn, $sql)){
   echo "<h3>Информация добавлена.</h3>";  
