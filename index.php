@@ -12,6 +12,7 @@ if($conn === false){
 
 $mail = mysqli_real_escape_string($conn,$_POST['mail']);
 $password = mysqli_real_escape_string($conn,$_POST['psw']);
+$password = md5($_POST['password']);
 $sql = "INSERT INTO form (email, password)
 VALUES ('$mail', '$password' )";
 
