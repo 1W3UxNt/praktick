@@ -18,7 +18,9 @@ VALUES ('$mail', '$password' )";
 
 if(mysqli_query($conn, $sql)){
   echo "<h3>Информация добавлена.</h3>";  
-} else{
+}
+ 
+else{
   echo "Ошибка $sql. "
       . mysqli_error($conn);
 }
