@@ -5,10 +5,10 @@ body {
  .wrapper {
   width: 300px;
 margin-left: 38%;
-margin-top: 15%;
+margin-top: 10%;
 }
 div{
-  width: 300px; height: 50;
+  width: 290px; height: 50;
   outline: 2px solid #000;
   border: 5px solid #00fa9a;
   border-radius: 12px;
@@ -18,7 +18,7 @@ input {
   background-color: #e6cb3300;
   border: 2px solid #2d2224;
   color: #228799;
-  width: 100%;
+  width: 96%;
   padding: 5px;
   height: 40px;
   margin-top: 5%;
@@ -28,7 +28,7 @@ button{
   background-color: #1f8dcc00;
   border: 2px solid #da631f;
   color: #6d3712;
-  width: 105%;
+  width: 100%;
   padding: 5px;
   height: 40px;
   margin-top: 10%; 
@@ -38,7 +38,7 @@ a{
   background-color: #1f8dcc00;
   border: 2px solid #da631f;
   color: #6d3712;
-  width: 105%;
+  width: 95%;
   padding: 5px;
   height: 40px;
   margin-top: 10%;
