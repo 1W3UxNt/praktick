@@ -1,31 +1,117 @@
+/* Стили для всего документа */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    background-color:#2d3238;
-    font-family: 'Roboto', sans-serif;
-   }
-   .wrapper {
-    width: 300px;
-  margin-left: 38%;
-  margin-top: 15%;
-  }
-  
-  
-  input {
-    background: transparent;
-    background-color: #e6cb3300;
-    border: 2px solid #2d2224;
-    color: #228799;
-    width: 100%;
-    padding: 5px;
-    height: 40px;
-    margin-top: 5%;
-  }
-  button{
-    background: transparent;
-    background-color: #1f8dcc00;
-    border: 2px solid #f2f6fc;
-    color: #ce631c;
-    width: 105%;
-    padding: 5px;
-    height: 40px;
-    margin-top: 7%; 
-  }
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+/* Стили для формы */
+.wrapper {
+  max-width: 500px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper p {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f2f2f2;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  background-color: #e6e6e6;
+}
+
+button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Стили для описания пароля */
+.container {
+  display: inline-block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
