@@ -17,14 +17,25 @@ $sql = "INSERT INTO form (email, password)
 VALUES ('$mail', '$password' )";
 
 if(mysqli_query($conn, $sql)){
-  echo "<h3>Информация добавлена.</h3>";  
-}
- 
+  mysqli_close($conn);
+  header("Location: index.html");
+  exit;
+} 
 else{
   echo "Ошибка $sql. "
       . mysqli_error($conn);
+  mysqli_close($conn);
+}
+if(mysqli_query($conn, $sql)){
+  mysqli_close($conn);
+  echo "<script>alert('Информация добавлена.');</script>";
+  header("Location: index.html");
+  exit;
+} 
+else{
+  echo "Ошибка $sql. "
+      . mysqli_error($conn);
+  mysqli_close($conn);
 }
 
-
-mysqli_close($conn);
 ?>
