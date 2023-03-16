@@ -1,32 +1,39 @@
 <?php
-$host= 'localhost';
+$host = 'localhost';
 $user = 'root';
 $pass = '';
 $db = 'form';
-  
-$conn = mysqli_connect($host , $user , $pass , $db);
-if($conn === false){
-  die("ERROR: Could not connect. "
-      . mysqli_connect_error());
+
+$conn = mysqli_connect($host, $user, $pass, $db);
+if ($conn === false) {
+    error_log("ERROR: Could not connect. " . mysqli_connect_error());
+    trigger_error("Could not connect to database");
 }
 
-$mail = mysqli_real_escape_string($conn,$_POST['mail']);
-$password = mysqli_real_escape_string($conn,$_POST['psw']);
-$password = md5($_POST['password']); 
-$sql = "SELECT * FROM form";
-$result = mysqli_query($conn, $sql);
+$email = mysqli_real_escape_string($conn, $_POST['email']);
+$password = mysqli_real_escape_string($conn, $_POST['password']);
 
-// Выводим результаты запроса
-if (mysqli_num_rows($result) > 0) {
-  // Выводим данные каждой строки
-  while($row = mysqli_fetch_assoc($result)) {
-      echo "id: " . $row["id"]. " - Name: " . $row["name"]. " - Email: " . $row["email"]. "<br>";
-  }
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo "Invalid email format";
+    exit;
+}
+
+$stmt = mysqli_prepare($conn, "SELECT email, password FROM form WHERE email = ?");
+mysqli_stmt_bind_param($stmt, 's', $email);
+mysqli_stmt_execute($stmt);
+mysqli_stmt_bind_result($stmt, $db_email, $hashed_password);
+mysqli_stmt_fetch($stmt);
+
+if (password_verify($password, $hashed_password)) {
+    session_start();
+    $_SESSION['email'] = $email;
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
+    header("Location: welcome.php");
+    exit;
 } else {
-  echo "0 results";
+    echo "Invalid email or password";
+    mysqli_stmt_close($stmt);
+    mysqli_close($conn);
 }
-
-
-
-mysqli_close($conn);
 ?>
