@@ -13,25 +13,20 @@ if($conn === false){
 $mail = mysqli_real_escape_string($conn,$_POST['mail']);
 $password = mysqli_real_escape_string($conn,$_POST['psw']);
 $password = md5($_POST['password']); 
-$sql = "INSERT INTO form (email, password,passwordc)
-VALUES ('$mail', '$password', '$passwordc' )";
+$sql = "SELECT * FROM form";
+$result = mysqli_query($conn, $sql);
 
-
-if(mysqli_query($conn, $sql)){
-    mysqli_close($conn);
-    header("Location: indux.html");
-    exit;
-  } 
-  if(mysqli_query($conn, $sql)){
-    mysqli_close($conn);
-    echo "<script>alert('Информация добавлена.');</script>";
-    header("Location: index.html");
-    exit;
-  } 
-  else{
-    echo "Ошибка $sql."
-         . mysqli_error($conn);
-         mysqli_close($conn);
+// Выводим результаты запроса
+if (mysqli_num_rows($result) > 0) {
+  // Выводим данные каждой строки
+  while($row = mysqli_fetch_assoc($result)) {
+      echo "id: " . $row["id"]. " - Name: " . $row["name"]. " - Email: " . $row["email"]. "<br>";
   }
+} else {
+  echo "0 results";
+}
+
+
+
 mysqli_close($conn);
 ?>
