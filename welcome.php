@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['mail'])) {
-	header("Location: index.html");
+if (!isset($_SESSION['email'])) {
+	header("Location: autorization.html");
 	exit();
 }
 
-$mail = $_SESSION['mail'];
+$mail = $_SESSION['email'];
 ?>
 
 <!DOCTYPE html>
