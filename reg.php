@@ -18,8 +18,8 @@ if ($stmt === false) {
 $mail = $_POST['mail'];
 $password = $_POST['password'];
 
-// Использование более сильного алгоритма хэширования
-$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+// Использование md5 для хеширования пароля
+$hashed_password = sha1($password);
 
 mysqli_stmt_bind_param($stmt, 'ss', $mail, $hashed_password);
 
