@@ -12,6 +12,9 @@ if ($conn === false) {
 $mail = $_POST['mail'];
 $password = $_POST['psw'];
 
+// Хеширование пароля
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
 // Использование подготовленных выражений
 $stmt = mysqli_prepare($conn, "SELECT * FROM form WHERE email=?");
 mysqli_stmt_bind_param($stmt, 's', $mail);
@@ -20,7 +23,7 @@ mysqli_stmt_execute($stmt);
 $result = mysqli_stmt_get_result($stmt);
 if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_assoc($result);
-    if (password_verify($password, $row['password'])) {
+    if (password_verify($hashed_password, $row['password'])) {
         // Если пароль верен, выполняется авторизация
         session_start();
         $_SESSION['mail'] = $mail;
@@ -28,11 +31,11 @@ if (mysqli_num_rows($result) == 1) {
         exit;
     } else {
         // Если пароль неверен, выводится сообщение об ошибке
-        echo "Неверный пароль";
+        echo '<script>alert("Неверный пароль."); window.location.href="authorization.html";</script>';
     }
 } else {
     // Если пользователь с таким email не найден, выводится сообщение об ошибке
-    echo "Пользователь с таким email не найден";
+    echo '<script>alert("Неверный логин."); window.location.href="authorization.html";</script>';
 }
 
 mysqli_stmt_close($stmt);
