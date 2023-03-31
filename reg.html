@@ -10,7 +10,7 @@
 	<form action="reg.php" method="post">
 		<div class="wrapper">
 			<p>Регистрация</p>
-			<input type="email" id="mail" name="mail" placeholder="Введите почту" required>
+			<input type="email" id="mail" name="login" placeholder="Введите логин (не должен начинаться с цифры или @)" pattern="^(?![0-9@])[a-zA-Z0-9@._%+-]{6,}$" title="Логин должен начинаться с цифры или с собачки" required>
 			<input type="password" id="psw" name="psw" placeholder="Введите пароль" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Должно содержать по крайней мере одну цифру и по одной заглавной и строчной букве, а также не менее 8 или более символов" required>
 			<div class="container" style="margin-top: 0;">
 			</div>
