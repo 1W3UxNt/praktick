@@ -1,10 +1,9 @@
 <?php
-session_start();
 
-if (!isset($_SESSION['email'])) {
-	header("Location: autorization.html");
-	exit();
-}
+// if (!isset($_SESSION['login']) && !$_SESSION['login']) {
+// 	header("Location: authorization.html");
+// 	exit();
+// }
 
 $mail = $_SESSION['email'];
 ?>
@@ -16,7 +15,7 @@ $mail = $_SESSION['email'];
 </head>
 <body>
 	<h2>Добро пожаловать, <?php echo $mail; ?></h2>
-	<p>Вы успешно аутентифицировались.</p>
+	<p>Вы успешно авторезировались.</p>
 	<p><a href="logout.php">Выйти</a></p>
 </body>
 </html>
