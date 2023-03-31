@@ -16,10 +16,10 @@ if ($stmt === false) {
 }
 
 $mail = $_POST['mail'];
-$password = $_POST['password'];
+$password = $_POST['psw'];
 
 // Использование md5 для хеширования пароля
-$hashed_password = sha1($password);
+$hashed_password = md5($password);
 
 mysqli_stmt_bind_param($stmt, 'ss', $mail, $hashed_password);
 
